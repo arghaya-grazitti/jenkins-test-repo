@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
 
@@ -24,9 +25,10 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-post { 
+   post { 
         always { 
-            deleteDir()
-     }
+            cleanWs()
+        }
 }
 }
+}      
