@@ -10,6 +10,8 @@ pipeline {
                 sh 'cat filename'
                 sh 'cat filename > testfile'
                 sh 'cat testfile'
+                sh 'touch abc'
+                sh 'ls'
             }
         }
         stage('Test') {
