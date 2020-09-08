@@ -25,35 +25,5 @@ pipeline {
             }
         }
     }
-}
-job("jenkins-test-repo") {
-    wrappers {
-        preBuildCleanup { // Clean before build
-            includePattern('**/target/**')
-            deleteDirectories()
-            cleanupParameter('CLEANUP')
-        }
-    }
-    publishers {
-        cleanWs { // Clean after build
-            cleanWhenAborted(true)
-            cleanWhenFailure(true)
-            cleanWhenNotBuilt(false)
-            cleanWhenSuccess(true)
-            cleanWhenUnstable(true)
-            deleteDirs(true)
-            notFailBuild(true)
-            disableDeferredWipeout(true)
-            patterns {
-                pattern {
-                    type('EXCLUDE')
-                    pattern('.propsfile')
-                }
-                pattern {
-                    type('INCLUDE')
-                    pattern('.gitignore')
-                }
-            }
-        }
-    }
+deleteDir
 }
