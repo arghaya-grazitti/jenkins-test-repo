@@ -8,6 +8,8 @@ pipeline {
                 writeFile file: 'filename', text: 'Working with files the Groovy way is easy.'
                 sh "echo 'raj' >> filename"
                 sh 'cat filename'
+                sh 'cat filename > testfile'
+                sh 'cat testfile'
             }
         }
         stage('Test') {
