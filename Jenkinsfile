@@ -1,15 +1,33 @@
+
 pipeline {
     agent any
+
     stages {
-        stage('Example') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                echo 'Building..'
+                //writeFile file: 'filename', text: 'Working with files the Groovy way is easy.'
+                sh "echo 'raj' >> filename"
+                sh 'cat filename'
+                sh 'cat filename > testfile'
+                sh 'cat testfile'
+                sh 'touch abc'
+                sh 'ls'
             }
         }
-    }
-    post {
-        always {
-            cleanWs()
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
         }
-    }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+}
+post { 
+        always { 
+            deleteDir()
+     }
 }
