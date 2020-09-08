@@ -24,6 +24,9 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
-deleteDir
+post { 
+        always { 
+            deleteDir()
+     }
+}
 }
