@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'touch filename'
+                writeFile file: 'filename', text: 'Working with files the Groovy way is easy.'
                 sh "echo 'raj' >> filename"
                 sh 'cat filename'
             }
