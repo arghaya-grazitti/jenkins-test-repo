@@ -5,9 +5,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                touch filename
-                echo "raj" >> filename
-                cat filename
+                sh 'touch filename'
+                sh "echo 'raj' >> filename"
+                sh 'cat filename'
             }
         }
         stage('Test') {
